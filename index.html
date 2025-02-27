@@ -262,7 +262,20 @@
                 transform: translateY(0);
             }
         }
-
+.video-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 900px;
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transform: translateY(30px);
+    opacity: 0;
+    transition: var(--transition);
+}
         /* ========== Video Section ========== */
         /* .video-section {
             padding: 5rem 5%;
