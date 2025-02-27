@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohamed Kamal Telis - Professional Pharmacist</title>
+    <style>
+        /* ========== Base Styles ========== */
+        :root {
+            --primary: #1a472a;
+            --secondary: #c6a55c;
+            --light: #f5f5f5;
+            --dark: #333333;
+            --transition: all 0.3s ease-in-out;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        /* ========== Scrollbar Styles ========== */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(26, 71, 42, 0.1);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 10px;
+        }
+
+        /* ========== Header & Navigation ========== */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            margin-right: 1rem;
+            transform-origin: center;
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            transform: rotate(10deg) scale(1.05);
+        }
+
+        .name-title {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .name-title h1 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            letter-spacing: 1px;
+        }
+
+        .name-title p {
+            color: var(--secondary);
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 2rem;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: var(--transition);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background-color: var(--secondary);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+            left: 0;
+        }
+
+        .mobile-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary);
+        }
+
+        /* ========== Hero Section ========== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 7rem 5% 5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.1;
+        }
+
+        .molecular-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .molecule {
+            position: absolute;
+            border: 2px solid var(--primary);
+            border-radius: 50%;
+            opacity: 0.2;
+            animation: float 15s infinite ease-in-out;
+        }
+
+        .molecule-1 {
+            width: 150px;
+            height: 150px;
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .molecule-2 {
+            width: 100px;
+            height: 100px;
+            top: 20%;
+            right: 20%;
+            animation-delay: 1s;
+        }
+
+        .molecule-3 {
+            width: 200px;
+            height: 200px;
+            bottom: 10%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+
+        .molecule-4 {
+            width: 120px;
+            height: 120px;
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 3s;
+        }
+
+        .molecule-5 {
+            width: 80px;
+            height: 80px;
+            top: 40%;
+            left: 40%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(10deg);
+            }
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 900px;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 0.8s forwards 0.2s;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--secondary);
+            margin-bottom: 2rem;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 0.8s forwards 0.4s;
+        }
+
+        .hero-text {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 3rem;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 0.8s forwards 0.6s;
+        }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ========== Video Section ========== */
+        .video-section {
+            padding: 5rem 5%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: rgba(26, 71, 42, 0.05);
+            position: relative;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary);
+        }
+
+        .video-container {
+            width: 100%;
+            max-width: 900px;
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transform: translateY(30px);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .video-container.visible {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .video-placeholder {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%;
+            background-color: #000;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(26, 71, 42, 0.7);
+            transition: var(--transition);
+        }
+
+        .video-overlay:hover {
+            background: rgba(26, 71, 42, 0.5);
+        }
+
+        .play-button {
+            width: 80px;
+            height: 80px;
+            background-color: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            transform: scale(1);
+        }
+
+        .play-button:hover {
+            transform: scale(1.1);
+        }
+
+        .play-button::after {
+            content: '';
+            width: 0;
+            height: 0;
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+            border-left: 25px solid white;
+            margin-left: 5px;
+        }
+
+        .video-frame {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Custom Pill-Shaped Divider */
+        .pill-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 4rem 0;
+        }
+
+        .pill {
+            width: 200px;
+            height: 40px;
+            background-color: var(--secondary);
+            border-radius: 40px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 3px 10px rgba(198, 165, 92, 0.3);
+        }
+
+        .pill::before,
+        .pill::after {
+            content: '';
+            height: 2px;
+            background-color: var(--secondary);
+            position: absolute;
+            width: 100px;
+        }
+
+        .pill::before {
+            left: -110px;
+        }
+
+        .pill::after {
+            right: -110px;
+        }
+
+        .pill-line {
+            width: 80%;
+            height: 1px;
+            background-color: rgba(26, 71, 42, 0.2);
+            position: absolute;
+        }
+
+        /* ========== About Section ========== */
+        .about-section {
+            padding: 5rem 5%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .about-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+            max-width: 1200px;
+            align-items: center;
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-image-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 120%;
+            border-radius: 0 30% 0 30%;
+            overflow: hidden;
+            transition: var(--transition);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .about-content {
+            flex: 2;
+            min-width: 300px;
+        }
+
+        .about-title {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-subtitle {
+            font-size: 1.2rem;
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .stats-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            flex: 1;
+            min-width: 150px;
+            padding: 1.5rem;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: var(--secondary);
+        }
+
+        /* ========== Services Section ========== */
+        .services-section {
+            padding: 5rem 5%;
+            background-color: rgba(26, 71, 42, 0.05);
+        }
+
+        .services-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            flex: 1;
+            min-width: 280px;
+            max-width: 350px;
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            position: relative;
+            cursor: pointer;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.1);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background-color: var(--secondary);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .service-icon-container {
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .service-icon {
+            font-size: 4rem;
+            color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .service-content {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .service-title {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .service-description {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--dark);
+        }
+
+        /* ========== Contact Section ========== */
+        .contact-section {
+            padding: 5rem 5%;
+            position: relative;
+        }
+
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+            background-color: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+            color: var(--primary);
+        }
+
+        .form-input,
+        .form-textarea {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid rgba(26, 71, 42, 0.2);
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-input:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(26, 71, 42, 0.1);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+        }
+
+        .info-icon {
+            font-size: 1.5rem;
+            color: var(--secondary);
+            margin-right: 1rem;
+        }
+
+        .info-content {
+            flex: 1;
+        }
+
+        .info-title {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .info-detail {
+            font-size: 1rem;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .submit-btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: var(--transition);
+        }
+
+        .submit-btn:hover {
+            background-color: #143d23;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(26, 71, 42, 0.3);
+        }
+
+        .submit-btn:hover::before {
+            left: 100%;
+        }
+
+        /* ========== Footer ========== */
+        footer {
+            background-color: var(--primary);
+            color: white;
+            padding: 3rem 5%;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer-logo img {
+            width: 120px;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            opacity: 0.8;
+        }
+
+        .footer-links {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .footer-title {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--secondary);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            opacity: 0.8;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--secondary);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .social-icon:hover {
+            background-color: var(--secondary);
+            transform: translateY(-5px);
+        }
+
+        .social-icon i {
+            font-size: 1.2rem;
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding: 1.5rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 3rem;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* ========== Button Styles ========== */
+        .pill-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(26, 71, 42, 0.2);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 0.8s forwards 0.8s;
+        }
+
+        .pill-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background-color: var(--secondary);
+            transition: width 0.3s ease-in-out;
+            z-index: -1;
+        }
+
+        .pill-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(26, 71, 42, 0.3);
+        }
+
+        .pill-button:hover::before {
+            width: 100%;
+        }
+
+        /* ========== Media Queries ========== */
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 1rem 5%;
+            }
+
+            .logo {
+                width: 60px;
+                height: 60px;
+            }
+
+            .name-title h1 {
+                font-size: 1.2rem;
+            }
+
+            .name-title p {
+                font-size: 0.8rem;
+            }
+
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                padding: 1rem 0;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            nav ul li {
+                margin: 0;
+                text-align: center;
+                padding: 1rem 0;
+            }
+
+            .mobile-toggle {
+                display: block;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .pill::before,
+            .pill::after {
+                width: 50px;
+            }
+
+            .pill::before {
+                left: -60px;
+            }
+
+            .pill::after {
+                right: -60px;
+            }
+
+            .contact-form {
+                padding: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .hero-text {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .about-title {
+                font-size: 1.5rem;
+            }
+
+            .about-subtitle {
+                font-size: 1rem;
+            }
+
+            .pill {
+                width: 150px;
+            }
+
+            .pill::before,
+            .pill::after {
+                width: 30px;
+            }
+
+            .pill::before {
+                left: -40px;
+            }
+
+            .pill::after {
+                right: -40px;
+            }
+
+            .play-button {
+                width: 60px;
+                height: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo-container">
+                <img src="/api/placeholder/80/80" alt="MK Logo" class="logo">
+                <div class="name-title">
+                    <h1>Mohamed Kamal Telis</h1>
+                    <p>Professional Pharmacist</p>
+                </div>
+            </div>
+            <nav>
+                <ul id="nav-menu">
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#services" class="nav-link">Services</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+                <div class="mobile-toggle" id="mobile-toggle">☰</div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-background">
+            <div class="molecular-bg">
+                <div class="molecule molecule-1"></div>
+                <div class="molecule molecule-2"></div>
+                <div class="molecule molecule-3"></div>
+                <div class="molecule molecule-4"></div>
+                <div class="molecule molecule-5"></div>
+            </div>
+        </div>
+        <div class="hero-content">
+            <h1 class="hero-title">Mohamed Kamal Telis</h1>
+            <h2 class="hero-subtitle">Dedicated to Pharmaceutical Excellence</h2>
+            <p class="hero-text">With over 10 years of experience in pharmaceutical care, I'm committed to providing the highest quality healthcare services. My expertise spans clinical pharmacy practice, medication management, and patient education. I believe in a patient-centered approach that combines scientific knowledge with compassionate care.</p>
+            <a href="#video" class="pill-button">Watch My Introduction</a>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section" id="video">
+        <h2 class="section-title">Welcome Message</h2>
+        <div class="video-container" id="video-container">
+            <div class="video-placeholder">
+                <div class="video-overlay" id="video-overlay">
+                    <div class="play-button"></div>
+                </div>
+                <!-- Video will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Pill Divider -->
+    <div class="pill-divider">
+        <div class="pill">
+            <div class="pill-line"></div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-container">
+            <div class="about-image">
+                <div class="about-image-container">
+                    <img src="/api/placeholder/400/600" alt="Mohamed Kamal Telis" class="about-img">
+                </div>
+            </div>
+            <div class="about-content">
+                <h3 class="about-title">Mohamed Kamal Telis, PharmD</h3>
+                <h4 class="about-subtitle">Clinical Pharmacist & Healthcare Consultant</h4>
+                <p class="about-text">I graduated with honors from the University of Pharmacy with a Doctor of Pharmacy degree. Following my education, I completed a specialized residency in clinical pharmacy, focusing on patient-centered care and medication management.</p>
+                <p class="about-text">Throughout my career, I've worked across various healthcare settings including hospitals, community pharmacies, and research institutions. This diverse experience has equipped me with a comprehensive understanding of pharmaceutical care and healthcare systems.</p>
+                <div class="stats-container">
+                    <div class="stat-item">
+                        <div class="stat-number">10+</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">Patients Helped</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-
